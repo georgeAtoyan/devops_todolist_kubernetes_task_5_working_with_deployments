@@ -279,20 +279,20 @@ kubectl get services -n mateapp
 
 ## 8. Accessing the Application
 
-The application listens on container port `8080`.
+The application listens on container port `8000`.
 
 A Kubernetes Service must expose the application to make it accessible.
 
 For local development and testing, port forwarding can be used:
 
 ```bash
-kubectl port-forward service/todoapp 8080:8080 -n mateapp
+kubectl port-forward service/todoapp 80:8000 -n mateapp
 ```
 
 After starting port forwarding, access the application through:
 
 ```text
-http://localhost:8080
+http://localhost:8000
 ```
 
 Port forwarding keeps the connection active only while the command is running.
@@ -403,6 +403,6 @@ After deployment, the expected configuration is:
 | Memory limit | 128Mi |
 | CPU scaling target | 70% |
 | Memory scaling target | 70% |
-| Container port | 8080 |
+| Container port | 8000 |
 
 The application should normally run two replicas and automatically scale up to five replicas when CPU or memory utilization increases.
